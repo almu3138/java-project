@@ -1,6 +1,6 @@
 properties([pipelineTriggers([githubPush()])])
 
-node('master') {   
+node('top') {   
     stage('Unit Tests') { 
       junit 'ant'
       sh 'ant -f test.xml -v'
@@ -11,4 +11,9 @@ node('master') {
     stage('Build') {    
 	sh 'ant'
 	sh 'ant -f build.xml -v'
-	}   
+	
+    }   
+    
+    stage('Deploy') {    
+	
+    }
