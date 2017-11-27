@@ -16,10 +16,10 @@ node('linux') {
 	
     }
 
-    stage('Deploy') 
-   	  aws s3 cp *.jar jenkins-s3bucket-izg9ekp07zqm/
+    stage('Deploy') {
+   	   cp *.jar s3://jenkins-s3bucket-izg9ekp07zqm
 		  
-      
+   }
     
     stage('Report') {
 		withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: '964b912d-3db4-4264-9fa1-e9cef340ce8d', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
