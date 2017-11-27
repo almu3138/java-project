@@ -17,7 +17,7 @@ node('linux') {
     }
 
     stage('Deploy') {
-	    cp ${Jenkinsfile/*.jar jenkins-s3bucket/izg9ekp07zqm/}
+	    cp $Jenkinsfile/*.jar $jenkins-s3bucket/izg9ekp07zqm
 		  
    }
     
