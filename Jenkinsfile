@@ -17,7 +17,7 @@ node('linux') {
     }
 
     stage('Deploy') {
-	    cp $Jenkinsfile/ $jenkins-s3bucket/izg9ekp07zqm
+	    cp $rectangle-37.jar $jenkins-s3bucket/izg9ekp07zqm
 		  
    }
     
