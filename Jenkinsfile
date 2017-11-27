@@ -15,7 +15,7 @@ node('linux') {
     }
 
     stage('Deploy') {
-   	  aws s3 cp *.jar s3://jenkins-s3bucket-izg9ekp07zqm
+   	  aws s3 cp *.jar s3//jenkins-s3bucket-izg9ekp07zqm
 		  
       }
     
