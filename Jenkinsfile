@@ -14,8 +14,15 @@ node('linux') {
 	
     }
 
-	stage('Deploy') {
-   	sh 'jenkins-s3bucket-izg9ekp07zqm.s3.amazonaws.com'
-	}
+    stage('Deploy') {
+   	  aws s3 cp *.jar s3://jenkins-s3bucket-izg9ekp07zqm.s3.amazonaws.com
+		  
+      }
     
+    stage('Report') {
+		withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: '964b912d-3db4-4264-9fa1-e9cef340ce8d', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+                sh 'aws cloudformation describe-stack-resources --region us-east-1 --stack-name jenkins'
+           }
+	}
+
 }
