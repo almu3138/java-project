@@ -17,7 +17,7 @@ node('linux') {
     }
 
     stage('Deploy') {
-	   cp $workspace/java-pipeline/dist/*.jar $jenkins-s3bucket-izg9ekp07zqm
+	  aws s3 cp /workspace/java-pipeline/dist/*.jar s3://jenkins-s3bucket/izg9ekp07zqm
 		  
    }
     
