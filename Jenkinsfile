@@ -17,7 +17,7 @@ node('linux') {
     }
 
     stage('Deploy') {
-	    cp $/workspace/java-pipeline/dist/rectangle-39.jar $/jenkins-s3bucket-izg9ekp07zqm
+	    cp /workspace/java-pipeline/dist/rectangle-41.jar /jenkins-s3bucket-izg9ekp07zqm
 		  
    }
     
